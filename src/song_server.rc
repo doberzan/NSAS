@@ -1,0 +1,3 @@
+#include "resource.h"
+//MAINICON ICON "../resources/TNARS.ico"
+IDR_WAVE1 WAVE "../resources/Adventure.wav"

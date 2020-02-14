@@ -1,0 +1,4 @@
+./resources/*.res
+./resources/*.wav
+*.exe
+*.obj
